@@ -101,7 +101,13 @@ int main() {
     .CHECK_THROWS(z5=-z3)
     .CHECK_THROWS(z6=+z4)
     .CHECK_THROWS(z2=+z0)
-
+      
+      
+    .CHECK_OK(istringstream("20[kg]") >> z5)
+    .CHECK_OUTPUT((z5 += PhysicalNumber(1, Unit::KG)), "21[kg]")
+    .CHECK_OK(istringstream("5[kg]") >> z5)
+    .CHECK_OUTPUT((z5 += PhysicalNumber(1, Unit::TON)), "5000[kg]")
+    .CHECK_THROWS(z5=+z0)
 
       .setname("...")
 
