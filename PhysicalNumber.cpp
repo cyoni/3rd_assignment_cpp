@@ -11,13 +11,15 @@
 using std::cout, std::endl, std::boolalpha, std::istringstream;
 using ariel::PhysicalNumber, ariel::Unit;
 
+
+
+
     ariel::PhysicalNumber::PhysicalNumber(){
 
       }
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
-        cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-        cout.precision(5);
+
 
     data=d;
     switch(k){
@@ -78,6 +80,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     return u;
     }
     std::ostream& ariel::operator<<(std::ostream &os, const PhysicalNumber&  dt){
+            cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+        cout.precision(5);
     return os << dt.get_data() << '[' << dt.get_measure() << ']';
     }
 
