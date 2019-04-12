@@ -181,6 +181,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber ariel::operator-(const PhysicalNumber& a){
+    if (a.get_data()==0) return a;
     return PhysicalNumber(-a.get_data(), a.getmeasure());
     }
 
