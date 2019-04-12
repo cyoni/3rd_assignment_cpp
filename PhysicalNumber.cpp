@@ -154,7 +154,14 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
     const bool ariel::operator!=(const PhysicalNumber& a, const PhysicalNumber& b){
-    return (!(a==b));
+
+    double res=0;
+    if (a.getmeasure()==b.getmeasure()) res = b.get_data();
+    else
+    res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
+    return !(a.get_data() == res);
+
+    //return (!(a==b));
     }
 
     const bool ariel::operator>(const PhysicalNumber& a, const PhysicalNumber& b){
