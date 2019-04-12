@@ -51,7 +51,9 @@ namespace ariel{
     int index2 = tmpStr.find(']');
 
     if (index==-1 || index2 == -1) { //
-    a.Throw("[ or ] is missing= " + tmpStr);
+  //  a.Throw("[ or ] is missing= " + tmpStr);
+  input.setstate(std::ios::failbit);
+  return input;
     }
 
     if (index == 0) // there is nothing before the [
