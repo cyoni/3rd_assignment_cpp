@@ -32,7 +32,7 @@ namespace ariel{
     friend const bool operator>=(const PhysicalNumber&, const PhysicalNumber&);
     friend const bool operator==(const PhysicalNumber&, const PhysicalNumber&);
     friend const bool operator!=(const PhysicalNumber&, const PhysicalNumber&);
-    float convert(Unit, Unit, std::string ,std::string , double) const;
+    float convert(Unit, Unit, std::string ,std::string , float) const;
     float get_data() const{return data;}
     std::string get_measure() const{return measure;}
     Unit getmeasure() const;
