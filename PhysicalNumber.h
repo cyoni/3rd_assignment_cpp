@@ -69,7 +69,7 @@ namespace ariel{
 
     // check if it's appropriate measure.   Capital letter?
 
-    if (m_str == "M" || m_str == "KM" || m_str == "CM" || m_str == "S" || m_str == "HOUR" || m_str == "MIN" || m_str == "TON" || m_str == "G"
+    if (m_str == "M" || m_str == "KM" || m_str == "CM" || m_str == "SEC" || m_str == "HOUR" || m_str == "MIN" || m_str == "TON" || m_str == "G"
     || m_str == "KG"){
     //cout << "TEST " << newNum << endl;
 

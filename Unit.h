@@ -12,7 +12,7 @@ enum class Unit
     CM=0,
     M,
     KM,
-    S,
+    SEC,
     MIN,
     HOUR,
     G,

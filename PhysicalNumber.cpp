@@ -28,8 +28,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     measure = "km";
     ms = k;
     break;
-    case Unit::S:
-    measure = "s";
+    case Unit::SEC:
+    measure = "sec";
     ms = k;
     break;
     case Unit::MIN:
@@ -62,7 +62,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     if (m == "CM") u = Unit::CM;
     else if (m == "KM") u = Unit::KM;
     else if (m == "M") u = Unit::M;
-    else if (m == "S") u = Unit::S;
+    else if (m == "SEC") u = Unit::SEC;
     else if (m == "HOUR") u = Unit::HOUR;
     else if (m == "MIN") u = Unit::MIN;
     else if (m == "S") u = Unit::S;
@@ -95,13 +95,13 @@ using ariel::PhysicalNumber, ariel::Unit;
     else if (ms_a==ariel::Unit::M && ms_b == ariel::Unit::KM)   res = data*1000; // KM->M
 
 //---
-    else if (ms_a==ariel::Unit::MIN && ms_b == ariel::Unit::S)   res = data/60;
-    else if (ms_a==ariel::Unit::HOUR && ms_b == ariel::Unit::S)   res = data/3600;
+    else if (ms_a==ariel::Unit::MIN && ms_b == ariel::Unit::SEC)   res = data/60;
+    else if (ms_a==ariel::Unit::HOUR && ms_b == ariel::Unit::SEC)   res = data/3600;
 
-    else if (ms_a==ariel::Unit::S && ms_b == ariel::Unit::MIN)  {res = data*60;}
+    else if (ms_a==ariel::Unit::SEC && ms_b == ariel::Unit::MIN)  {res = data*60;}
     else if (ms_a==ariel::Unit::HOUR && ms_b == ariel::Unit::MIN)   res = data/60;
 
-    else if (ms_a==ariel::Unit::S && ms_b == ariel::Unit::HOUR)   res = data*3600;
+    else if (ms_a==ariel::Unit::SEC && ms_b == ariel::Unit::HOUR)   res = data*3600;
     else if (ms_a==ariel::Unit::MIN && ms_b == ariel::Unit::HOUR)   res = data*60;
 
 // --
