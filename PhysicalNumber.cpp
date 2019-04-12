@@ -62,6 +62,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     }
+    double PhysicalNumber::get_data() const{return data;}
+    std::string PhysicalNumber::get_measure() const{return measure;}
 
     Unit ariel::PhysicalNumber::getmeasure(std::string m){
     Unit u ;
@@ -132,9 +134,110 @@ using ariel::PhysicalNumber, ariel::Unit;
      throw std::invalid_argument(str);
     }
 
+
+      std::istream& ariel::operator>> (std::istream& input, PhysicalNumber& a) {
+   // WHAT IS INPUT.GET , INPUT.PEEK   . INPUT.SETSTATE
+
+    std::string tmpStr;
+    std::string m_str;
+
+    input >>  tmpStr;
+    int index = tmpStr.find('[');
+    int index2 = tmpStr.find(']');
+
+    if (index==-1 || index2 == -1) { //
+  //  a.Throw("[ or ] is missing= " + tmpStr);
+  input.setstate(std::ios::failbit);
+  return input;
+    }
+
+    if (index == 0) // there is nothing before the [
+    {
+   // a.Throw("nothing before [");
+     input.setstate(std::ios::failbit);
+    }
+       // cout << "TEST1 " << tmpStr << endl;
+
+    std::string newNum = tmpStr.substr(0,index);
+
+    // check what is this type of number. (str, or number, or str+number)
+   // cout << index2 << endl;
+    m_str = tmpStr.substr(index+1);
+    m_str = m_str.substr(0,m_str.length()-1);
+
+    // check if it's appropriate measure.   Capital letter?
+
+    if (m_str == "m" || m_str == "km" || m_str == "cm" || m_str == "sec" || m_str == "hour" || m_str == "min" || m_str == "ton"
+     || m_str == "g"
+    || m_str == "kg"){
+    //cout << "TEST " << newNum << endl;
+
+    int number = 0;
+    istringstream xx(newNum);
+    xx >> number;
+
+    a = PhysicalNumber(number, a.getmeasure(m_str));
+    }
+    else{
+   // a.Throw("not valid measurment "+ tmpStr);
+     input.setstate(std::ios::failbit);
+
+    }
+
+    //cout << "try to test=" << tmpStr << ',' << index << ',' << m_str << endl;
+
+    return (input);
+
+   }
+
+     PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& b){
+     double res=0;
+     if (this->getmeasure()==b.getmeasure()) res = b.get_data();
+     else
+     res = convert(this->getmeasure(),b.getmeasure(),this->get_measure(), b.get_measure(), b.get_data());
+     data = data+res;
+     return *this;
+     }
+
+        const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
+        if (this->data==0) return *this;
+        PhysicalNumber copy = *this;
+        data--;
+        return copy;
+        }
+        //
+
+
+     PhysicalNumber& PhysicalNumber::operator++(){ // prefix inc (++a)
+     data++;
+     return *this;
+    }
+
+    const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++)
+    PhysicalNumber copy = *this;
+    data++;
+    return copy;
+    }
+
+
+    PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
+    if (this->data==0) return *this;
+    data--;
+    return *this;
+    }
+//
+     PhysicalNumber& PhysicalNumber::operator-=(const PhysicalNumber& b){
+
+     double res=0;
+     if (getmeasure()==b.getmeasure()) res = b.get_data();
+     else
+     res = convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
+     data = data-res;
+     return *this;
+    }
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a, const PhysicalNumber& b){
            cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-        cout.precision(5);
+            cout.precision(5);
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -160,8 +263,6 @@ using ariel::PhysicalNumber, ariel::Unit;
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
     return !(a.get_data() == res);
-
-    //return (!(a==b));
     }
 
     const bool ariel::operator>(const PhysicalNumber& a, const PhysicalNumber& b){
