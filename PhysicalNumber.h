@@ -51,7 +51,7 @@ namespace ariel{
     int index2 = tmpStr.find(']');
 
     if (index==-1 || index2 == -1) { //
-    a.Throw("[ or ] is missing");
+    a.Throw("[ or ] is missing= " + tmpStr);
     }
 
     if (index == 0) // there is nothing before the [
