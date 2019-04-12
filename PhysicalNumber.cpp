@@ -80,8 +80,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return u;
     }
     std::ostream& ariel::operator<<(std::ostream &os, const PhysicalNumber&  dt){
-            cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-        cout.precision(5);
+
     return os << dt.get_data() << '[' << dt.get_measure() << ']';
     }
 
@@ -144,6 +143,8 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     const PhysicalNumber ariel::operator-(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
+                cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+        cout.precision(5);
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
