@@ -59,15 +59,15 @@ using ariel::PhysicalNumber, ariel::Unit;
     Unit ariel::PhysicalNumber::getmeasure(std::string m){
     Unit u ;
 
-    if (m == "CM") u = Unit::CM;
-    else if (m == "KM") u = Unit::KM;
-    else if (m == "M") u = Unit::M;
-    else if (m == "HOUR") u = Unit::HOUR;
-    else if (m == "MIN") u = Unit::MIN;
-    else if (m == "SEC") u = Unit::SEC;
-    else if (m == "TON") u = Unit::TON;
-    else if (m == "G") u = Unit::G;
-    else if (m == "KG") u = Unit::KG;
+    if (m == "CM" || m == "cm") u = Unit::CM;
+    else if (m == "KM" || m == "km") u = Unit::KM;
+    else if (m == "M" || m == "m") u = Unit::M;
+    else if (m == "HOUR" || m == "hour") u = Unit::HOUR;
+    else if (m == "MIN" || m == "min") u = Unit::MIN;
+    else if (m == "SEC" || m == "sec") u = Unit::SEC;
+    else if (m == "TON" || m == "ton") u = Unit::TON;
+    else if (m == "G" || m == "g") u = Unit::G;
+    else if (m == "KG" || m == "kg") u = Unit::KG;
     else Throw("error 552");
 
     return u;
