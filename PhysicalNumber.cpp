@@ -13,7 +13,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     ariel::PhysicalNumber::PhysicalNumber(){   }
 
-    ariel::PhysicalNumber::PhysicalNumber(float d, Unit k){
+    ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
     data=d;
     switch(k){
     case Unit::CM:
@@ -81,8 +81,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
 
-    float PhysicalNumber::convert(ariel::Unit ms_a, ariel::Unit ms_b,std::string str1,  std::string str2, float data) const{
-    float res=0;
+    double PhysicalNumber::convert(ariel::Unit ms_a, ariel::Unit ms_b,std::string str1,  std::string str2, double data) const{
+    double res=0;
 
          if (ms_a==ariel::Unit::M && ms_b == ariel::Unit::CM)   res = data/100; // CM->M
     else if (ms_a==ariel::Unit::KM && ms_b == ariel::Unit::CM)   res = data/1000; // CM->KM
@@ -125,7 +125,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -134,7 +134,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber ariel::operator-(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -147,7 +147,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const bool ariel::operator>(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -155,7 +155,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const bool ariel::operator<(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -170,7 +170,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return PhysicalNumber(a.get_data(), a.getmeasure());
     }
     const bool ariel::operator<=(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -178,7 +178,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const bool ariel::operator>=(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
@@ -186,7 +186,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const bool ariel::operator==(const PhysicalNumber& a, const PhysicalNumber& b){
-    float res=0;
+    double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
