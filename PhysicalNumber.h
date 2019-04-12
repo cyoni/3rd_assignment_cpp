@@ -58,7 +58,8 @@ namespace ariel{
 
     if (index == 0) // there is nothing before the [
     {
-    a.Throw("nothing before [");
+   // a.Throw("nothing before [");
+     input.setstate(std::ios::failbit);
     }
        // cout << "TEST1 " << tmpStr << endl;
 
@@ -83,7 +84,9 @@ namespace ariel{
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
-    a.Throw("not valid measurment "+ tmpStr);
+   // a.Throw("not valid measurment "+ tmpStr);
+     input.setstate(std::ios::failbit);
+
     }
 
     //cout << "try to test=" << tmpStr << ',' << index << ',' << m_str << endl;
