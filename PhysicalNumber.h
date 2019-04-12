@@ -11,13 +11,13 @@ namespace ariel{
 
     class PhysicalNumber{
     private:
-    double data;
+    float data;
     std::string measure;
     Unit ms;
     public:
 
     PhysicalNumber();
-    PhysicalNumber(double,Unit); // constructor
+    PhysicalNumber(float,Unit); // constructor
                                  // declarations
     bool boolalpha = false;
     friend std::ostream& operator<<(std::ostream&, const PhysicalNumber&);
@@ -32,8 +32,8 @@ namespace ariel{
     friend const bool operator>=(const PhysicalNumber&, const PhysicalNumber&);
     friend const bool operator==(const PhysicalNumber&, const PhysicalNumber&);
     friend const bool operator!=(const PhysicalNumber&, const PhysicalNumber&);
-    double convert(Unit, Unit, std::string ,std::string , double) const;
-    double get_data() const{return data;}
+    float convert(Unit, Unit, std::string ,std::string , double) const;
+    float get_data() const{return data;}
     std::string get_measure() const{return measure;}
     Unit getmeasure() const;
     Unit getmeasure(std::string);
@@ -80,7 +80,7 @@ namespace ariel{
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
-    a.Throw("not valid measurment");
+    a.Throw("not valid measurment " << tmpStr);
     }
 
     //cout << "try to test=" << tmpStr << ',' << index << ',' << m_str << endl;
@@ -92,7 +92,7 @@ namespace ariel{
 
 
      PhysicalNumber& operator+=(const PhysicalNumber& b){
-     double res=0;
+     float res=0;
      if (getmeasure()==b.getmeasure()) res = b.get_data();
      else
      res = convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
@@ -101,7 +101,7 @@ namespace ariel{
     }
 
      PhysicalNumber& operator-=(const PhysicalNumber& b){
-     double res=0;
+     float res=0;
      if (getmeasure()==b.getmeasure()) res = b.get_data();
      else
      res = convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
