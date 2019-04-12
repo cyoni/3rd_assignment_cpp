@@ -80,7 +80,7 @@ namespace ariel{
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
-    a.Throw("not valid measurment " << tmpStr);
+    a.Throw("not valid measurment "+ tmpStr);
     }
 
     //cout << "try to test=" << tmpStr << ',' << index << ',' << m_str << endl;
