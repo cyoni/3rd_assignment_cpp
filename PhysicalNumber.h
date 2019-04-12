@@ -107,6 +107,7 @@ namespace ariel{
     }
 
      PhysicalNumber& operator-=(const PhysicalNumber& b){
+
      double res=0;
      if (getmeasure()==b.getmeasure()) res = b.get_data();
      else
@@ -128,11 +129,13 @@ namespace ariel{
 
 
     PhysicalNumber& operator--(){ // prefix inc (--a)
+    if (this->data==0) return *this;
     data--;
     return *this;
     }
 
     const PhysicalNumber operator--(int d) { // postfix inc (a--)
+    if (this->data==0) return *this;
     PhysicalNumber copy = *this;
     data--;
     return copy;
