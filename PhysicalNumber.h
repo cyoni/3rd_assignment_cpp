@@ -14,6 +14,7 @@ namespace ariel{
     double data;
     std::string measure;
     Unit ms;
+
     public:
 
     PhysicalNumber();
@@ -22,18 +23,22 @@ namespace ariel{
     bool boolalpha = false;
     friend std::ostream& operator<<(std::ostream&, const PhysicalNumber&);
     friend std::istream& operator>> (std::istream&, PhysicalNumber&);
+
     friend const PhysicalNumber operator+(const PhysicalNumber&, const PhysicalNumber&);
     friend const PhysicalNumber operator-(const PhysicalNumber&, const PhysicalNumber&);
     friend const PhysicalNumber operator+(const PhysicalNumber&);
     friend const PhysicalNumber operator-(const PhysicalNumber&);
-    friend const bool operator>(const PhysicalNumber&, const PhysicalNumber&);
-    friend const bool operator<(const PhysicalNumber&, const PhysicalNumber&);
-    friend const bool operator<=(const PhysicalNumber&, const PhysicalNumber&);
-    friend const bool operator>=(const PhysicalNumber&, const PhysicalNumber&);
-    friend const bool operator==(const PhysicalNumber&, const PhysicalNumber&);
-    friend const bool operator!=(const PhysicalNumber&, const PhysicalNumber&); // friend does not need name of class in cpp
+
+    friend bool operator>(const PhysicalNumber&, const PhysicalNumber&);
+    friend bool operator<(const PhysicalNumber&, const PhysicalNumber&);
+    friend bool operator<=(const PhysicalNumber&, const PhysicalNumber&);
+    friend bool operator>=(const PhysicalNumber&, const PhysicalNumber&);
+    friend bool operator==(const PhysicalNumber&, const PhysicalNumber&);
+    friend  bool operator!=(const PhysicalNumber&, const PhysicalNumber&); // friend does not need name of class in cpp
+
     const PhysicalNumber operator++(int);
     const PhysicalNumber operator--(int);
+
     PhysicalNumber& operator-=(const PhysicalNumber&);
     PhysicalNumber& operator--();
     PhysicalNumber& operator++();

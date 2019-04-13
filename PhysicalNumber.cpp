@@ -63,6 +63,8 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     }
     double PhysicalNumber::get_data() const{return data;}
+
+
     std::string PhysicalNumber::get_measure() const{return measure;}
 
     Unit ariel::PhysicalNumber::getmeasure(std::string m){
@@ -190,14 +192,14 @@ using ariel::PhysicalNumber, ariel::Unit;
 
    }
 
-     PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& b){
-     double res=0;
-     if (this->getmeasure()==b.getmeasure()) res = b.get_data();
-     else
-     res = convert(this->getmeasure(),b.getmeasure(),this->get_measure(), b.get_measure(), b.get_data());
-     data = data+res;
-     return *this;
-     }
+         PhysicalNumber& PhysicalNumber::operator+=(const PhysicalNumber& b){
+         double res=0;
+         if (getmeasure()==b.getmeasure()) res = b.get_data();
+         else
+         res = convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
+         data = data+res;
+         return *this;
+         }
 
         const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
         if (this->data==0) return *this;
@@ -213,7 +215,7 @@ using ariel::PhysicalNumber, ariel::Unit;
      return *this;
     }
 
-    const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++)
+    const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
     PhysicalNumber copy = *this;
     data++;
     return copy;
@@ -256,7 +258,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
 
-    const bool ariel::operator!=(const PhysicalNumber& a, const PhysicalNumber& b){
+     bool ariel::operator!=(const PhysicalNumber& a, const PhysicalNumber& b){
 
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
@@ -265,7 +267,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return !(a.get_data() == res);
     }
 
-    const bool ariel::operator>(const PhysicalNumber& a, const PhysicalNumber& b){
+     bool ariel::operator>(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -273,7 +275,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return (a.get_data() > res);
     }
 
-    const bool ariel::operator<(const PhysicalNumber& a, const PhysicalNumber& b){
+     bool ariel::operator<(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -288,7 +290,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a){
     return PhysicalNumber(a.get_data(), a.getmeasure());
     }
-    const bool ariel::operator<=(const PhysicalNumber& a, const PhysicalNumber& b){
+
+    bool ariel::operator<=(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -296,7 +299,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return (a.get_data() <= res);
     }
 
-    const bool ariel::operator>=(const PhysicalNumber& a, const PhysicalNumber& b){
+    bool ariel::operator>=(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -304,7 +307,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return (a.get_data() >= res);
     }
 
-    const bool ariel::operator==(const PhysicalNumber& a, const PhysicalNumber& b){
+    bool ariel::operator==(const PhysicalNumber& a, const PhysicalNumber& b){
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
