@@ -199,7 +199,6 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
      const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
-     cout << "TEST::1" << endl;
     // if (this->data==0) return *this;
      PhysicalNumber copy = *this;
      data--;
@@ -207,49 +206,40 @@ using ariel::PhysicalNumber, ariel::Unit;
      }
 
      PhysicalNumber& PhysicalNumber::operator++(){ // prefix inc (++a)
-     cout << "TEST::2" << endl;
      data++;
      return *this;
      }
 
     const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
-    cout << "TEST::3" << endl;
     PhysicalNumber copy = *this;
     data++;
     return copy;
     }
 
     PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
-    cout << "TEST::4" << endl;
   //  if (this->data==0) return *this;
     data--;
     return *this;
     }
 
     const PhysicalNumber PhysicalNumber::operator-() const{
-    cout << "TEST::5" << endl;
     return PhysicalNumber(-data, ms);
     }
 
     const PhysicalNumber PhysicalNumber::operator+() const{
-    cout << "TEST::6" << endl;
-
     return *this;
     }
 
     const PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& b) const{
-    cout << "TEST::7...." << b.get_data() << "," << data << "...." << endl;
     double res=0;
     if (getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = b.convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
-    cout << "RESULT=" << res+data << ". RES=" << res << endl;
-    cout << get_measure() << "..." << b.get_measure() << endl;
     return PhysicalNumber(res+data, ms);
     }
 
     const PhysicalNumber PhysicalNumber::operator-( const PhysicalNumber& b)const{
-    cout << "TEST::8" << endl;
+
     double res=0;
     if (getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -268,9 +258,6 @@ using ariel::PhysicalNumber, ariel::Unit;
      return *this;
     }
     /////
-
-
-
 
      bool ariel::operator!=(const PhysicalNumber& a, const PhysicalNumber& b){
 
