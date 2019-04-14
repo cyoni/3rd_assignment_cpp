@@ -98,7 +98,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     double res=0;
 
          if (ms_a==ariel::Unit::M && ms_b == ariel::Unit::CM)   res = data/100; // CM->M
-    else if (ms_a==ariel::Unit::KM && ms_b == ariel::Unit::CM)   res = data/1000; // CM->KM
+    else if (ms_a==ariel::Unit::KM && ms_b == ariel::Unit::CM)   res = data/10000; // CM->KM
 
     else if (ms_a==ariel::Unit::CM && ms_b == ariel::Unit::M)   res = data*100; // M->CM
     else if (ms_a==ariel::Unit::KM && ms_b == ariel::Unit::M)   res = data/1000; // M->KM
