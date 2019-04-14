@@ -14,9 +14,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
 
-    ariel::PhysicalNumber::PhysicalNumber(){
-
-      }
+    ariel::PhysicalNumber::PhysicalNumber(){}
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
 
@@ -144,6 +142,9 @@ using ariel::PhysicalNumber, ariel::Unit;
     std::string m_str;
 
     input >>  tmpStr;
+
+    cout << "TEST: FULL STR=" << tmpStr;
+
     int index = tmpStr.find('[');
     int index2 = tmpStr.find(']');
 
@@ -178,6 +179,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     istringstream xx(newNum);
     xx >> number;
 
+    cout << " GOT number=" << number << " MEASURE=" << m_str << endl;
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
