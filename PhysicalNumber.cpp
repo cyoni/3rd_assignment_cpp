@@ -175,9 +175,9 @@ using ariel::PhysicalNumber, ariel::Unit;
     || m_str == "kg"){
     //cout << "TEST " << newNum << endl;
 
-    int number = 0;
-    istringstream xx(newNum);
-    xx >> number;
+    double number = 0;
+    istringstream tmpClass(newNum);
+    tmpClass >> number;
 
     cout << " GOT number=" << number << " MEASURE=" << m_str << endl;
     a = PhysicalNumber(number, a.getmeasure(m_str));
