@@ -29,6 +29,8 @@ namespace ariel{
     friend const PhysicalNumber operator+(const PhysicalNumber&);
     friend const PhysicalNumber operator-(const PhysicalNumber&);
 
+
+
     friend bool operator>(const PhysicalNumber&, const PhysicalNumber&);
     friend bool operator<(const PhysicalNumber&, const PhysicalNumber&);
     friend bool operator<=(const PhysicalNumber&, const PhysicalNumber&);
@@ -38,6 +40,10 @@ namespace ariel{
 
     const PhysicalNumber operator++(int);
     const PhysicalNumber operator--(int);
+
+    const PhysicalNumber operator+();
+    const PhysicalNumber operator-();
+
 
     PhysicalNumber& operator-=(const PhysicalNumber&);
     PhysicalNumber& operator--();
@@ -50,7 +56,6 @@ namespace ariel{
     Unit getmeasure() const;
     Unit getmeasure(std::string);
     void Throw(std::string) const;
-
 
 };
 
