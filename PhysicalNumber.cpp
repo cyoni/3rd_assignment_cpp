@@ -229,7 +229,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     if (this->data==0) return *this;
     else{
     data=data*(-1);
-    return *this;
+    return PhysicalNumber(data, getmeasure());
     }
     }
 
