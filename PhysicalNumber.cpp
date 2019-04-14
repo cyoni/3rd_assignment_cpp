@@ -226,6 +226,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber PhysicalNumber::operator-(){
+    data=data*(-1);
      return *this;
 
     }
