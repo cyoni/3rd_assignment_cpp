@@ -24,14 +24,14 @@ namespace ariel{
     friend std::ostream& operator<<(std::ostream&, const PhysicalNumber&);
     friend std::istream& operator>> (std::istream&, PhysicalNumber&);
 
-    friend const PhysicalNumber operator+(const PhysicalNumber&, const PhysicalNumber&);
-    friend const PhysicalNumber operator-(const PhysicalNumber&, const PhysicalNumber&);
+     const PhysicalNumber operator+(const PhysicalNumber&);
+     const PhysicalNumber operator-(const PhysicalNumber&);
     const PhysicalNumber operator+();
     const PhysicalNumber operator-();
-    const PhysicalNumber operator++(int); //V
-    const PhysicalNumber operator--(int);//V
-    PhysicalNumber& operator--(); //V
-    PhysicalNumber& operator++(); // V
+    const PhysicalNumber operator++(int); //x++
+    const PhysicalNumber operator--(int);//
+    PhysicalNumber& operator--(); //
+    PhysicalNumber& operator++(); //  ++x
 
     friend bool operator>(const PhysicalNumber&, const PhysicalNumber&);
     friend bool operator<(const PhysicalNumber&, const PhysicalNumber&);

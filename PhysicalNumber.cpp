@@ -237,22 +237,22 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
-    const PhysicalNumber ariel::operator+(const PhysicalNumber& a, const PhysicalNumber& b){
+    const PhysicalNumber ariel::operator+(const PhysicalNumber& b){
     cout << "TEST::7" << endl;
     double res=0;
-    if (a.getmeasure()==b.getmeasure()) res = b.get_data();
+    if (getmeasure()==b.getmeasure()) res = b.get_data();
     else
-    res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
-    return PhysicalNumber(res+a.get_data(), a.getmeasure());
+    res = b.convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
+    return PhysicalNumber(res+get_data(), getmeasure());
     }
 
-    const PhysicalNumber ariel::operator-(const PhysicalNumber& a, const PhysicalNumber& b){
+    const PhysicalNumber PhysicalNumber::operator-( const PhysicalNumber& b){
     cout << "TEST::8" << endl;
     double res=0;
-    if (a.getmeasure()==b.getmeasure()) res = b.get_data();
+    if (getmeasure()==b.getmeasure()) res = b.get_data();
     else
-    res = a.convert(a.getmeasure(),b.getmeasure(),a.get_measure(), b.get_measure(), b.get_data());
-    return PhysicalNumber(-res+a.get_data(), a.getmeasure());
+    res = b.convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
+    return PhysicalNumber(-res+get_data(), getmeasure());
     }
 
 //
