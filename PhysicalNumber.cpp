@@ -20,8 +20,6 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
-
-
     data=d;
     switch(k){
     case Unit::CM:
@@ -283,6 +281,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber ariel::operator-(const PhysicalNumber& a){
+        cout << "hello" << endl;
     return PhysicalNumber(-a.get_data(), a.getmeasure());
     }
 
