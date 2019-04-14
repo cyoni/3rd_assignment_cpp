@@ -20,6 +20,8 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
+                   cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+                cout.precision(15);
     data=d;
     switch(k){
     case Unit::CM:
