@@ -25,8 +25,8 @@ namespace ariel{
     friend std::istream& operator>> (std::istream&, PhysicalNumber&);
 
     friend const PhysicalNumber operator+(const PhysicalNumber&, const PhysicalNumber&);
-    friend const PhysicalNumber operator+(const PhysicalNumber&);
     friend const PhysicalNumber operator-(const PhysicalNumber&, const PhysicalNumber&);
+    const PhysicalNumber operator+();
     const PhysicalNumber operator-();
     const PhysicalNumber operator++(int); //V
     const PhysicalNumber operator--(int);//V
