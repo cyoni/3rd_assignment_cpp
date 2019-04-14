@@ -224,7 +224,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     const PhysicalNumber PhysicalNumber::operator-(){
 
-    return PhysicalNumber(-a.get_data(), a.getmeasure());
+    return PhysicalNumber(-data, ms);
     }
 
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a){
