@@ -36,8 +36,8 @@ namespace ariel{
     friend bool operator==(const PhysicalNumber&, const PhysicalNumber&);
     friend  bool operator!=(const PhysicalNumber&, const PhysicalNumber&); // friend does not need name of class in cpp
 
-    const PhysicalNumber operator++(double);
-    const PhysicalNumber operator--(double);
+    const PhysicalNumber operator++(int);
+    const PhysicalNumber operator--(int);
 
     PhysicalNumber& operator-=(const PhysicalNumber&);
     PhysicalNumber& operator--();

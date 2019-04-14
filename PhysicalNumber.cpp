@@ -179,13 +179,9 @@ using ariel::PhysicalNumber, ariel::Unit;
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
-   // a.Throw("not valid measurment "+ tmpStr);
      input.setstate(std::ios::failbit);
 
     }
-
-    //cout << "try to test=" << tmpStr << ',' << index << ',' << m_str << endl;
-
     return (input);
 
    }
@@ -199,7 +195,9 @@ using ariel::PhysicalNumber, ariel::Unit;
          return *this;
          }
 
-        const PhysicalNumber PhysicalNumber::operator--(double d) { // postfix inc (a--)
+        const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
+                   cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+            cout.precision(5);
         if (this->data==0) return *this;
         PhysicalNumber copy = *this;
         data--;
@@ -209,11 +207,15 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
      PhysicalNumber& PhysicalNumber::operator++(){ // prefix inc (++a)
+                cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+            cout.precision(5);
      data++;
      return *this;
-    }
+     }
 
-    const PhysicalNumber PhysicalNumber::operator++(double d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
+    const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
+               cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+            cout.precision(5);
     PhysicalNumber copy = *this;
     data++;
     return copy;
@@ -221,6 +223,8 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
     PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
+               cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+            cout.precision(5);
     if (this->data==0) return *this;
     data--;
     return *this;
