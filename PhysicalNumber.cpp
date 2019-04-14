@@ -14,7 +14,10 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
 
-    ariel::PhysicalNumber::PhysicalNumber(){}
+    ariel::PhysicalNumber::PhysicalNumber(){
+               cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
+               cout.precision(5);
+    }
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
 
@@ -143,8 +146,6 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     input >>  tmpStr;
 
-    cout << "TEST: FULL STR=" << tmpStr;
-
     int index = tmpStr.find('[');
     int index2 = tmpStr.find(']');
 
@@ -164,7 +165,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     std::string newNum = tmpStr.substr(0,index);
 
     // check what is this type of number. (str, or number, or str+number)
-   // cout << index2 << endl;
+
     m_str = tmpStr.substr(index+1);
     m_str = m_str.substr(0,m_str.length()-1);
 
@@ -173,13 +174,10 @@ using ariel::PhysicalNumber, ariel::Unit;
     if (m_str == "m" || m_str == "km" || m_str == "cm" || m_str == "sec" || m_str == "hour" || m_str == "min" || m_str == "ton"
      || m_str == "g"
     || m_str == "kg"){
-    //cout << "TEST " << newNum << endl;
 
     double number = 0;
     istringstream tmpClass(newNum);
     tmpClass >> number;
-
-    cout << " GOT number=" << number << " MEASURE=" << m_str << endl;
     a = PhysicalNumber(number, a.getmeasure(m_str));
     }
     else{
@@ -240,8 +238,7 @@ using ariel::PhysicalNumber, ariel::Unit;
      return *this;
     }
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a, const PhysicalNumber& b){
-           cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-            cout.precision(5);
+
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
