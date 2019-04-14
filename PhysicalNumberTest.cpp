@@ -116,7 +116,7 @@ int main() {
     .CHECK_OUTPUT(--z3, "19[kg]")
     .CHECK_OUTPUT(z16+z17, "4[min]")
     .CHECK_OUTPUT(z16+(z17++), "4[min]")
-    .CHECK_OUTPUT(z16+(--z18), "3[min]")
+    .CHECK_OUTPUT(z16+(--z18), "2[min]")
     .CHECK_OUTPUT((--z20)+(--z19), "2999[kg]")//
     .CHECK_OUTPUT((--z20)-(--z19), "1998[kg]")//
 
