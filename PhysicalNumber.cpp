@@ -225,13 +225,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
-    const PhysicalNumber PhysicalNumber::operator-(){
-    if (this->data==0) return *this;
-    else{
-    data=data*(-1);
-    return PhysicalNumber(data, getmeasure());
-    }
-    }
+
 
 
     const PhysicalNumber PhysicalNumber::operator+(){
