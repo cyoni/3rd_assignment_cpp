@@ -225,7 +225,10 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
+    const PhysicalNumber PhysicalNumber::operator-(){
+     return *this;
 
+    }
 
 
     const PhysicalNumber PhysicalNumber::operator+(){
