@@ -16,7 +16,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
     ariel::PhysicalNumber::PhysicalNumber(){
                cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-               cout.precision(5);
+               cout.precision(15);
     }
 
     ariel::PhysicalNumber::PhysicalNumber(double d, Unit k){
@@ -196,8 +196,6 @@ using ariel::PhysicalNumber, ariel::Unit;
          }
 
         const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
-                   cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-            cout.precision(5);
         if (this->data==0) return *this;
         PhysicalNumber copy = *this;
         data--;
@@ -207,15 +205,11 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
      PhysicalNumber& PhysicalNumber::operator++(){ // prefix inc (++a)
-                cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-            cout.precision(5);
      data++;
      return *this;
      }
 
     const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
-               cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-            cout.precision(5);
     PhysicalNumber copy = *this;
     data++;
     return copy;
@@ -223,8 +217,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
     PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
-               cout.setf(std::ios::fixed, std::ios::floatfield); // get fixed number of digits after the decimal num
-            cout.precision(5);
+
     if (this->data==0) return *this;
     data--;
     return *this;
