@@ -199,7 +199,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
      const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
-     if (this->data==0) return *this;
+    // if (this->data==0) return *this;
      PhysicalNumber copy = *this;
      data--;
      return copy;
@@ -217,7 +217,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
-    if (this->data==0) return *this;
+  //  if (this->data==0) return *this;
     data--;
     return *this;
     }
