@@ -226,12 +226,12 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
-    const PhysicalNumber PhysicalNumber::operator-(){
+    const PhysicalNumber PhysicalNumber::operator-() const{
     cout << "TEST::5" << endl;
     return PhysicalNumber(-data, ms);
     }
 
-    const PhysicalNumber PhysicalNumber::operator+(){
+    const PhysicalNumber PhysicalNumber::operator+() const{
     cout << "TEST::6" << endl;
 
     return *this;
