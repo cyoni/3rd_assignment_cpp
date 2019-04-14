@@ -25,11 +25,13 @@ namespace ariel{
     friend std::istream& operator>> (std::istream&, PhysicalNumber&);
 
     friend const PhysicalNumber operator+(const PhysicalNumber&, const PhysicalNumber&);
-    friend const PhysicalNumber operator-(const PhysicalNumber&, const PhysicalNumber&);
     friend const PhysicalNumber operator+(const PhysicalNumber&);
-    friend const PhysicalNumber operator-(const PhysicalNumber&);
-
-
+    friend const PhysicalNumber operator-(const PhysicalNumber&, const PhysicalNumber&);
+    const PhysicalNumber operator-();
+    const PhysicalNumber operator++(int); //V
+    const PhysicalNumber operator--(int);//V
+    PhysicalNumber& operator--(); //V
+    PhysicalNumber& operator++(); // V
 
     friend bool operator>(const PhysicalNumber&, const PhysicalNumber&);
     friend bool operator<(const PhysicalNumber&, const PhysicalNumber&);
@@ -38,14 +40,8 @@ namespace ariel{
     friend bool operator==(const PhysicalNumber&, const PhysicalNumber&);
     friend  bool operator!=(const PhysicalNumber&, const PhysicalNumber&); // friend does not need name of class in cpp
 
-    const PhysicalNumber operator++(int);
-    const PhysicalNumber operator--(int);
-
-
 
     PhysicalNumber& operator-=(const PhysicalNumber&);
-    PhysicalNumber& operator--();
-    PhysicalNumber& operator++();
     PhysicalNumber& operator+=(const PhysicalNumber&);
     double convert(Unit, Unit, std::string ,std::string , double) const;
     double get_data() const;
