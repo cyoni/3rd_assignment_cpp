@@ -223,7 +223,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber PhysicalNumber::operator-(){
-
+    cout << "XXXXXXXXX" << endl;
     return PhysicalNumber(-data, ms);
     }
 
