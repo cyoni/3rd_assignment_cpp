@@ -199,6 +199,7 @@ using ariel::PhysicalNumber, ariel::Unit;
 
 
      const PhysicalNumber PhysicalNumber::operator--(int d) { // postfix inc (a--)
+     cout << "TEST::1" << endl;
     // if (this->data==0) return *this;
      PhysicalNumber copy = *this;
      data--;
@@ -206,32 +207,38 @@ using ariel::PhysicalNumber, ariel::Unit;
      }
 
      PhysicalNumber& PhysicalNumber::operator++(){ // prefix inc (++a)
+     cout << "TEST::2" << endl;
      data++;
      return *this;
      }
 
     const PhysicalNumber PhysicalNumber::operator++(int d) { // postfix inc (a++).   PhysicalNumber:: so that we will be able to access private va
+    cout << "TEST::3" << endl;
     PhysicalNumber copy = *this;
     data++;
     return copy;
     }
 
     PhysicalNumber& PhysicalNumber::operator--(){ // prefix inc (--a)
+    cout << "TEST::4" << endl;
   //  if (this->data==0) return *this;
     data--;
     return *this;
     }
 
     const PhysicalNumber PhysicalNumber::operator-(){
+    cout << "TEST::5" << endl;
     return PhysicalNumber(-data, ms);
     }
 
     const PhysicalNumber PhysicalNumber::operator+(){
+    cout << "TEST::6" << endl;
 
     return *this;
     }
 
     const PhysicalNumber ariel::operator+(const PhysicalNumber& a, const PhysicalNumber& b){
+    cout << "TEST::7" << endl;
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
@@ -240,6 +247,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber ariel::operator-(const PhysicalNumber& a, const PhysicalNumber& b){
+    cout << "TEST::8" << endl;
     double res=0;
     if (a.getmeasure()==b.getmeasure()) res = b.get_data();
     else
