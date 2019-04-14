@@ -238,12 +238,13 @@ using ariel::PhysicalNumber, ariel::Unit;
     }
 
     const PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& b) const{
-    cout << "TEST::7...." << b.get_data() << "," << data << "....";
+    cout << "TEST::7...." << b.get_data() << "," << data << "...." << endl;
     double res=0;
     if (getmeasure()==b.getmeasure()) res = b.get_data();
     else
     res = b.convert(getmeasure(),b.getmeasure(),get_measure(), b.get_measure(), b.get_data());
     cout << "RESULT=" << res+data << ". RES=" << res << endl;
+    cout << get_measure() << "..." << b.get_measure() << endl;
     return PhysicalNumber(res+data, ms);
     }
 
