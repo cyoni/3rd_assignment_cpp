@@ -237,7 +237,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
-    const PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& b){
+    const PhysicalNumber PhysicalNumber::operator+(const PhysicalNumber& b) const{
     cout << "TEST::7" << endl;
     double res=0;
     if (getmeasure()==b.getmeasure()) res = b.get_data();
@@ -246,7 +246,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return PhysicalNumber(res+get_data(), getmeasure());
     }
 
-    const PhysicalNumber PhysicalNumber::operator-( const PhysicalNumber& b){
+    const PhysicalNumber PhysicalNumber::operator-( const PhysicalNumber& b)const{
     cout << "TEST::8" << endl;
     double res=0;
     if (getmeasure()==b.getmeasure()) res = b.get_data();
