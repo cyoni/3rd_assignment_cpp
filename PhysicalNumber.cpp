@@ -225,16 +225,7 @@ using ariel::PhysicalNumber, ariel::Unit;
     return *this;
     }
 
-    const PhysicalNumber PhysicalNumber::operator-(){
-    data=data*(-1);
-     return *this;
 
-    }
-
-
-    const PhysicalNumber PhysicalNumber::operator+(){
-    return *this;
-    }
 //
      PhysicalNumber& PhysicalNumber::operator-=(const PhysicalNumber& b){
 
